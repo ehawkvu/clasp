@@ -34,6 +34,7 @@ extern "C" {
 #include <dlfcn.h>
 #include <cstdarg>
 #include <typeinfo>
+#include <stdarg.h>
 #include <clasp/core/foundation.h>
 #include <clasp/core/common.h>
 #include <clasp/core/commandLineOptions.h>
