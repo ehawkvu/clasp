@@ -48,6 +48,13 @@ THE SOFTWARE.
 #ifndef MSG_EOR
 #define MSG_EOR 0
 #endif
+/* Below is needed for musl */
+#ifndef NETDB_INTERNAL
+#define NETDB_INTERNAL -1
+#endif
+#ifndef NETDB_SUCCESS
+#define NETDB_SUCCESS 0
+#endif
 #include <clasp/core/foundation.h>
 #include <clasp/core/object.h>
 #include <clasp/core/array.h>
