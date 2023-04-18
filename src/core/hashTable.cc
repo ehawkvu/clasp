@@ -1124,7 +1124,13 @@ KeyValuePair* HashTable_O::rehash_upgrade_write_lock(bool expandTable, T_sp find
 #ifdef _TARGET_OS_DARWIN
     pthread_yield_np();
 #else
+    /* If we are on Linux, but not glibc, use sched_yield(2) */
+    #if defined _TARGET_OS_LINUX && !defined __GLIBC__
+    #include <sched.h>
+    sched_yield();
+    #else
     pthread_yield();
+    #endif
 #endif
     goto tryAgain;
   } else {
